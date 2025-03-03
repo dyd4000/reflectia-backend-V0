@@ -19,7 +19,7 @@ jobs:
           node-version: '18' # firebaseがサポートするバージョンを指定
       
       - name: Install dependencies
-        run: npm ci # package.jsonに記載された依存関係をインストール
+        run: cd functions && npm ci # package.jsonに記載された依存関係をインストール
 
       - name: Instal ESLint
         run: npm install -g eslint 
