@@ -12,6 +12,8 @@
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "src",
+    "functions",
+    "src/seed.ts"
   ]
 }
