@@ -4,6 +4,7 @@ import * as admin from "firebase-admin";
 
 console.log("🔥API called!");
 admin.initializeApp();
+console.log("Firebase Admin SDK initialized.");
 
 if (process.env.FUNCTIONS_EMULATOR) {
   process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
@@ -44,6 +45,7 @@ export const getQuestions = onRequest(async (req, res) => {
     res.json(questions);
   } catch (error) {
     console.error("Failed to fetch questions:", error);
-    res.status(500).json({error: "Failed to fetch questions"});
+    const errorMessage = (error instanceof Error) ? error.message : "Unknown error";
+    res.status(500).json({ error: `Failed to fetch questions: ${errorMessage}` });
   }
 });
