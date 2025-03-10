@@ -45,7 +45,9 @@ export const getQuestions = onRequest(async (req, res) => {
     res.json(questions);
   } catch (error) {
     console.error("Failed to fetch questions:", error);
-    const errorMessage = (error instanceof Error) ? error.message : "Unknown error";
-    res.status(500).json({ error: `Failed to fetch questions: ${errorMessage}` });
+    const errorMessage = (error instanceof Error) ?
+     error.message : "Unknown error";
+    res.status(500).json(
+      {error: `Failed to fetch questions: ${errorMessage}`});
   }
 });
